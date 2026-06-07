@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,400&family=Space+Grotesk:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "Fira Code", ui-monospace, monospace;
+  
+  --color-navy-50: #fafafa;
+  --color-navy-100: #f1f1f1;
+  --color-navy-200: #d9d9d9;
+  --color-navy-300: #b3b3b3;
+  --color-navy-400: #8c8c8c;
+  --color-navy-500: #666666;
+  --color-navy-600: #4d4d4d;
+  --color-navy-700: #363636;
+  --color-navy-800: #242424;
+  --color-navy-900: #171717;
+  --color-navy-950: #0a0a0a;
+
+  --color-brand-red: #c91c1c;
+  --color-brand-red-hover: #a81414;
+  --color-brand-red-light: #fdf2f2;
+}
+
+@layer base {
+  body {
+    @apply bg-white text-slate-900 font-sans antialiased selection:bg-brand-red-light selection:text-brand-red;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight text-navy-900;
+  }
+}
+
+/* Custom scrollbar for an elegant feel */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* 1. Breathing outline animation for mental SOS Beacon */
+@keyframes breathe-red {
+  0%, 100% {
+    border-color: rgba(201, 28, 28, 0.3);
+    box-shadow: 0 0 4px rgba(201, 28, 28, 0.1);
+  }
+  50% {
+    border-color: rgba(201, 28, 28, 0.85);
+    box-shadow: 0 0 12px rgba(201, 28, 28, 0.35);
+  }
+}
+.animate-breathe-red {
+  animation: breathe-red 2.5s infinite ease-in-out;
+}
+
+/* 2. Sovereign Blueprint Tick Borders */
+.card-blueprint {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-blueprint::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  border-top: 2px solid var(--color-brand-red);
+  border-left: 2px solid var(--color-brand-red);
+  pointer-events: none;
+  border-radius: 2px 0 0 0;
+}
+.card-blueprint::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  border-bottom: 2px solid var(--color-brand-red);
+  border-right: 2px solid var(--color-brand-red);
+  pointer-events: none;
+  border-radius: 0 0 2px 0;
+}
+
+/* 3. Subtle Dot Grid background pattern for administrative precision */
+.bg-dot-grid {
+  background-image: radial-gradient(rgba(10, 10, 10, 0.04) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* 4. Fade-in animation for page sections */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out both;
+}
+
+/* 5. Bounce-right animation for CTA arrow icons */
+@keyframes bounce-right {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+}
+.animate-bounce-right {
+  animation: bounce-right 1.2s ease-in-out infinite;
+}
