@@ -4,7 +4,7 @@ import {
   ArrowRight, Sparkle, BookOpen, Quotes, Info, Check, X,
   Question, CaretRight, CheckCircle, Warning, Play
 } from "@phosphor-icons/react";
-import { SURVIVAL_TRAITS, COURSES, CONTROVERSY_DETAILS, SURVIVOR_QUIZ_QUESTIONS } from "../data";
+import { SURVIVAL_TRAITS, CONTROVERSY_DETAILS, SURVIVOR_QUIZ_QUESTIONS } from "../data";
 import { Course, SurvivalTrait } from "../types";
 import { motion, AnimatePresence } from "motion/react";
 import IndiaMapSection from "../components/IndiaMapSection";

@@ -11,6 +11,7 @@ CockroachIAS is a premium, empathy-driven companion platform engineered specific
 - **Integrity Quiz:** A lightweight, gamified quiz enabling students to evaluate their resilience quotient and receive helpful mental support signals.
 - **India Samvad Map:** An interactive geo-visualization depicting regional preparation realities and connecting aspirants nationwide to customized mentoring threads.
 - **Mental Support Integration:** 24/7 emergency SOS panel offering calm guidance during moments of high-stakes preparation pressure.
+- **Static Companion Chatbot:** A lightweight, floating, rule-based Q&A chatbot built with custom asset branding, featuring name-guessing interaction and direct resource links to help navigate courses and guides.
 
 ---
 
@@ -42,6 +43,7 @@ cockroachias/
 │   │   ├── Header.tsx       # Dynamic navigation header & resources dropdown
 │   │   ├── Footer.tsx       # Core brand values & covenant guidelines
 │   │   ├── IndiaMapSection.jsx # GeoJSON-driven state map visualization
+│   │   ├── Chatbot.tsx      # Reduced-scale floating companion chatbot
 │   │   └── pyq/             # PYQ sub-components (dashboard, tables, filter bars)
 │   ├── data/                # Mock questions & historical stats (2014-2025)
 │   ├── lib/                 # Numerical calculators & analytical aggregators
