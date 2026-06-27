@@ -11,6 +11,8 @@ import MainsPYQAnalysisPage from "./pages/MainsPYQAnalysisPage";
 import MainsCockroachAnswersPage from "./pages/MainsCockroachAnswersPage";
 import MainsThemeWiseAnalysisPage from "./pages/MainsThemeWiseAnalysisPage";
 import ConstitutionExplorerPage from "./pages/ConstitutionExplorerPage";
+import AdministrativePioneersPage from "./pages/AdministrativePioneersPage";
+import MythologyEthicsPage from "./pages/MythologyEthicsPage";
 import { Sparkle, X, Handshake } from "@phosphor-icons/react";
 import { AnimatePresence, motion } from "motion/react";
 import Chatbot from "./components/Chatbot";
@@ -40,6 +42,10 @@ export default function App() {
         return <MainsThemeWiseAnalysisPage setActivePage={setActivePage} />;
       case "constitution-explorer":
         return <ConstitutionExplorerPage setActivePage={setActivePage} />;
+      case "governance-pioneers":
+        return <AdministrativePioneersPage setActivePage={setActivePage} />;
+      case "mythology-ethics":
+        return <MythologyEthicsPage setActivePage={setActivePage} />;
       case "metro-map":
         return <UPSCMetroMapPage setActivePage={setActivePage} />;
       case "about":

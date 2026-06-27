@@ -131,3 +131,45 @@
 .animate-bounce-right {
   animation: bounce-right 1.2s ease-in-out infinite;
 }
+
+/* 6. Premium Spotlight card border tracking */
+html {
+  scroll-behavior: smooth;
+}
+
+.spotlight-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(226, 232, 240, 0.8); /* Slate-200 border base color */
+  padding: 1px; /* 1px border gap */
+  transition: background 0.3s ease;
+}
+
+.spotlight-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    250px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
+    rgba(201, 28, 28, 0.25),
+    transparent 70%
+  );
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.spotlight-card:hover::before {
+  opacity: 1;
+}
+
+.spotlight-card-inner {
+  position: relative;
+  z-index: 1;
+  background: #ffffff;
+  border-radius: 15px; /* Slightly tighter than container */
+  height: 100%;
+}
+

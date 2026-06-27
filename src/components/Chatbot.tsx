@@ -215,7 +215,7 @@ Our platform is built on ground-level empathy and total honesty. What would you 
         break;
       case "mentor":
         userText = "How do I reach a mentor?";
-        botResponse = `Need an emotional anchor, a study planner check-in, or syllabus clarity? Our mentors (Prashanth, Anusha, Varun, Riya, and Sanju) are ex-aspirants who have lived the struggle. We will support you. Head to our Contact page to send a query or check our resources!`;
+        botResponse = `Need an emotional anchor, a study planner check-in, or syllabus clarity? Our mentors are ex-aspirants who have lived the struggle. We will support you. Head to our Contact page to send a query or check our resources!`;
         routeLabel = "💬 Go to Contact Page";
         routeAction = () => {
           setActivePage("contact");

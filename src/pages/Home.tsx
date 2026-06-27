@@ -87,7 +87,7 @@ export default function Home({ setActivePage }: { setActivePage: (page: string) 
         </motion.div>
         
         <motion.h1 
-          className="text-4xl sm:text-5xl md:text-6xl font-display font-extrabold text-navy-950 tracking-tight max-w-4xl mx-auto leading-[1.15]"
+          className="text-4xl sm:text-5xl md:text-6xl font-display font-extrabold text-navy-950 tracking-tight max-w-4xl mx-auto leading-[1.15] text-balance"
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.5 }}
@@ -98,7 +98,7 @@ export default function Home({ setActivePage }: { setActivePage: (page: string) 
         </motion.h1>
  
         <motion.p 
-          className="mt-8 text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed"
+          className="mt-8 text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed text-balance"
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.5 }}
@@ -248,19 +248,60 @@ export default function Home({ setActivePage }: { setActivePage: (page: string) 
             <div className="bg-brand-red text-white px-6 py-4 rounded-xl text-center text-base sm:text-lg font-semibold">
               Indian civilisation celebrates not those who never fall, but those who rise repeatedly.
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-              <div className="text-center p-6 bg-white border border-slate-200 rounded-xl hover:border-brand-red/40 transition-colors duration-200 hover:shadow-md">
-                <h5 className="font-bold text-lg text-navy-950">Mahatma Gandhi</h5>
-                <p className="text-sm text-slate-500 mt-2">faced failures before success.</p>
-              </div>
-              <div className="text-center p-6 bg-white border border-slate-200 rounded-xl hover:border-brand-red/40 transition-colors duration-200 hover:shadow-md">
-                <h5 className="font-bold text-lg text-navy-950">B. R. Ambedkar</h5>
-                <p className="text-sm text-slate-500 mt-2">overcame immense adversity.</p>
-              </div>
-              <div className="text-center p-6 bg-white border border-slate-200 rounded-xl hover:border-brand-red/40 transition-colors duration-200 hover:shadow-md">
-                <h5 className="font-bold text-lg text-navy-950">Sarojini Naidu</h5>
-                <p className="text-sm text-slate-500 mt-2">transformed setbacks into achievements.</p>
-              </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative items-stretch mt-8">
+              {/* Card 1 - Shifted up */}
+              <motion.div 
+                whileHover={{ y: -6 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                className="text-left p-8 bg-white border border-slate-200 rounded-2xl hover:border-brand-red/30 transition-all duration-300 shadow-xs hover:shadow-md md:-translate-y-4 flex flex-col justify-between relative"
+              >
+                <div className="absolute top-0 right-0 w-8 h-8 bg-[#f5f5f5] text-slate-500 border-l border-b border-slate-200 flex items-center justify-center rounded-bl-xl rounded-tr-2xl text-xs font-bold font-mono">
+                  01
+                </div>
+                <div>
+                  <span className="text-[10px] font-mono font-bold text-brand-red uppercase tracking-wider block mb-2">Patience & Satyagraha</span>
+                  <h5 className="font-bold text-xl text-navy-950 font-display">Mahatma Gandhi</h5>
+                  <p className="text-xs text-slate-500 mt-3 leading-relaxed">
+                    Navigated consecutive political and personal failures, demonstrating that mass resilience is built over decades of slow, persistent work.
+                  </p>
+                </div>
+              </motion.div>
+ 
+              {/* Card 2 - Centered with brand-red highlight border */}
+              <motion.div 
+                whileHover={{ y: -6 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                className="text-left p-8 bg-navy-950 text-white rounded-2xl transition-all duration-300 shadow-lg border border-navy-900 md:translate-y-2 flex flex-col justify-between relative"
+              >
+                <div className="absolute top-0 right-0 w-8 h-8 bg-brand-red text-white flex items-center justify-center rounded-bl-xl rounded-tr-2xl text-xs font-bold font-mono">
+                  02
+                </div>
+                <div>
+                  <span className="text-[10px] font-mono font-bold text-brand-red-light uppercase tracking-wider block mb-2">Intellectual Grit</span>
+                  <h5 className="font-bold text-xl text-white font-display">B. R. Ambedkar</h5>
+                  <p className="text-xs text-slate-300 mt-3 leading-relaxed">
+                    Overcame compounding institutional discrimination and structural barriers to draft India's constitutional bedrock.
+                  </p>
+                </div>
+              </motion.div>
+ 
+              {/* Card 3 - Shifted down */}
+              <motion.div 
+                whileHover={{ y: -6 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                className="text-left p-8 bg-white border border-slate-200 rounded-2xl hover:border-brand-red/30 transition-all duration-300 shadow-xs hover:shadow-md md:-translate-y-4 flex flex-col justify-between relative"
+              >
+                <div className="absolute top-0 right-0 w-8 h-8 bg-[#f5f5f5] text-slate-500 border-l border-b border-slate-200 flex items-center justify-center rounded-bl-xl rounded-tr-2xl text-xs font-bold font-mono">
+                  03
+                </div>
+                <div>
+                  <span className="text-[10px] font-mono font-bold text-brand-red uppercase tracking-wider block mb-2">Literary Voice</span>
+                  <h5 className="font-bold text-xl text-navy-950 font-display">Sarojini Naidu</h5>
+                  <p className="text-xs text-slate-500 mt-3 leading-relaxed">
+                    Transformed setbacks, imprisonment, and social boundaries into national milestones as India's premier poet and administrator.
+                  </p>
+                </div>
+              </motion.div>
             </div>
             <p className="text-sm text-slate-500 text-center italic">
               Their journeys were not about privilege; they were about <strong className="text-brand-red not-italic">persistence</strong>.
@@ -295,16 +336,23 @@ export default function Home({ setActivePage }: { setActivePage: (page: string) 
                   onClick={() => setSelectedTrait(trait.id)}
                   whileHover={{ scale: 1.02, x: 4 }}
                   whileTap={{ scale: 0.98 }}
-                  className={`w-full text-left p-4.5 rounded-xl border transition-all duration-200 flex items-center space-x-4 cursor-pointer focus:outline-hidden ${
+                  className={`w-full text-left p-4.5 rounded-xl border transition-all duration-200 flex items-center space-x-4 cursor-pointer focus:outline-hidden relative ${
                     isActive
-                      ? "border-brand-red bg-navy-900 text-white shadow-md ring-1 ring-brand-red"
+                      ? "border-transparent text-white"
                       : "border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50/50"
                   }`}
                 >
-                  <div className={`p-2.5 rounded-md ${isActive ? "bg-brand-red text-white" : "bg-navy-50 text-navy-700"}`} id={`trait-icon-bg-${trait.id}`}>
+                  {isActive && (
+                    <motion.div
+                      layoutId="active-trait-capsule"
+                      className="absolute inset-0 bg-navy-900 rounded-xl z-0 border border-brand-red"
+                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    />
+                  )}
+                  <div className={`p-2.5 rounded-md relative z-10 ${isActive ? "bg-brand-red text-white" : "bg-navy-50 text-navy-700"}`} id={`trait-icon-bg-${trait.id}`}>
                     {getTraitIcon(trait.iconName, "w-5 h-5")}
                   </div>
-                  <div>
+                  <div className="relative z-10">
                     <h4 className={`text-sm font-bold block ${isActive ? "text-white" : "text-navy-950"}`}>{trait.title}</h4>
                     <span className={`text-[11px] block font-mono ${isActive ? "text-slate-300" : "text-slate-500"}`}>{trait.tagline}</span>
                   </div>

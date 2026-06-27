@@ -7,24 +7,27 @@ import { TEAM_MEMBERS } from "../data";
 import { motion } from "motion/react";
 import { TeamMember } from "../types";
 
-import prashanthPhoto from "../../assets/prashanth.jpg";
-import anushaPhoto from "../../assets/anusha.jpg";
-import varunPhoto from "../../assets/varun.png";
-import riyaPhoto from "../../assets/riya.png";
-import sanjeevaPhoto from "../../assets/sanjeeva.png";
+// Photo imports kept for future use:
+// import prashanthPhoto from "../../assets/prashanth.jpg";
+// import anushaPhoto from "../../assets/anusha.jpg";
+// import varunPhoto from "../../assets/varun.png";
+// import riyaPhoto from "../../assets/riya.png";
+// import sanjeevaPhoto from "../../assets/sanjeeva.png";
 
-const memberPhotos: Record<string, string> = {
-  "Prashanth N": prashanthPhoto,
-  "Anusha PC": anushaPhoto,
-  "Varun Amidal": varunPhoto,
-  "Sanjeeva Reddy": sanjeevaPhoto,
-  "Riya P Kabadi": riyaPhoto
-};
+// const memberPhotos: Record<string, string> = {
+//   "Prashanth N": prashanthPhoto,
+//   "Anusha PC": anushaPhoto,
+//   "Varun Amidal": varunPhoto,
+//   "Sanjeeva Reddy": sanjeevaPhoto,
+//   "Riya P Kabadi": riyaPhoto
+// };
 
 export default function AboutUs() {
   const renderCard = (member: TeamMember | undefined) => {
     if (!member) return null;
-    const photo = member.name in memberPhotos ? memberPhotos[member.name] : null;
+
+    // Define geometric details based on role to diversify the abstract patterns
+    const isTechOrAdmin = member.role === "CTO" || member.role === "Founder & CEO";
 
     return (
       <div
@@ -32,46 +35,50 @@ export default function AboutUs() {
         className="bg-white border border-slate-200 p-6 sm:p-8 rounded-2xl shadow-xs flex flex-col justify-between hover:border-navy-300 transition duration-300 overflow-hidden h-full card-blueprint"
       >
         <div>
-          {/* Card Header Profile Layout with Designation as the Banner */}
-          <div className="relative h-28 bg-navy-950 rounded-t-2xl -mx-6 sm:-mx-8 -mt-6 sm:-mt-8 mb-12 border-b border-slate-800 overflow-visible flex flex-col justify-center items-center p-4">
-            {/* Subtle overlay gradient */}
-            <div className="absolute inset-0 bg-gradient-to-r from-navy-900 to-navy-950 opacity-95" />
-
-            {/* Designation / Role text displayed prominently in the banner */}
-            <div className="absolute top-[15%] z-10 text-center">
-              <span className="text-[20px] font-mono font-bold tracking-widest text-brand-red-light bg-brand-red/20 border border-brand-red/35 px-3.5 py-1 rounded-full uppercase shadow-xs">
-                {member.role}
-              </span>
-            </div>
-
-            {/* Floating Profile Image (Increased by 20%: w-24 h-24 / 96px) */}
-            <div className="absolute bottom-0 translate-y-8 w-24 h-24 rounded-full overflow-hidden border-4 border-white shadow-md bg-white shrink-0 z-20">
-              {photo ? (
-                <img
-                  src={photo}
-                  alt={member.name}
-                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                  style={{ transform: member.name === "Anusha PC" ? "scale(1.15)" : "scale(1)" }}
-                />
+          {/* Decorative Abstract SVG Banner */}
+          <div className="relative h-20 bg-navy-950 rounded-t-xl -mx-6 sm:-mx-8 -mt-6 sm:-mt-8 mb-6 overflow-hidden flex items-center justify-center border-b border-slate-800">
+            <div className="absolute inset-0 bg-gradient-to-tr from-navy-900 to-navy-950 opacity-90" />
+            
+            {/* SVG Grid / Coordinates Pattern */}
+            <svg className="absolute inset-0 w-full h-full text-slate-700/20" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <pattern id={`pattern-${member.role.replace(/\s+/g, '-')}`} width="12" height="12" patternUnits="userSpaceOnUse">
+                  <path d="M 12 0 L 0 0 0 12" fill="none" stroke="currentColor" strokeWidth="0.5"/>
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill={`url(#pattern-${member.role.replace(/\s+/g, '-')})`} />
+              {isTechOrAdmin ? (
+                <>
+                  <circle cx="25%" cy="50%" r="18" fill="none" stroke="#c91c1c" strokeWidth="1" opacity="0.35" strokeDasharray="3 3"/>
+                  <circle cx="75%" cy="40%" r="30" fill="none" stroke="#c91c1c" strokeWidth="1.25" opacity="0.25"/>
+                  <line x1="25%" y1="50%" x2="75%" y2="40%" stroke="#c91c1c" strokeWidth="0.75" opacity="0.3"/>
+                </>
               ) : (
-                <div className="w-full h-full bg-gradient-to-br from-slate-800 to-navy-950 text-white flex items-center justify-center font-display font-bold text-xl tracking-wider">
-                  {member.name.split(" ").map(n => n[0]).join("")}
-                </div>
+                <>
+                  <line x1="50%" y1="0" x2="50%" y2="100%" stroke="#c91c1c" strokeWidth="0.75" opacity="0.3"/>
+                  <circle cx="50%" cy="50%" r="22" fill="none" stroke="#c91c1c" strokeWidth="1" opacity="0.35" />
+                  <circle cx="50%" cy="50%" r="10" fill="none" stroke="#c91c1c" strokeWidth="1.5" opacity="0.2" />
+                </>
               )}
-            </div>
+            </svg>
+            
+            {/* Designation / Role text displayed inside the banner */}
+            <span className="relative z-10 text-[9px] font-mono font-bold tracking-widest text-brand-red bg-brand-red-light border border-brand-red/10 px-2.5 py-0.5 rounded-md uppercase">
+              {member.role}
+            </span>
           </div>
 
-          <div className="space-y-4 pt-2">
+          <div className="space-y-4">
+            <h3 className="text-base font-bold font-display text-navy-950 text-center mb-3">
+              {member.name}
+            </h3>
+
             {/* Micro metrics tracking */}
             <div className="flex flex-col gap-1 text-xs font-mono">
               <span className="text-slate-400 uppercase tracking-widest font-bold text-[9px]">SPECIALIZATION</span>
               <span className="text-navy-700 bg-navy-50 px-2.5 py-1.5 rounded-sm font-bold text-[10px] leading-relaxed">
                 {member.specialization}
               </span>
-            </div>
-
-            <div className="space-y-1">
-              <h3 className="text-base font-bold font-display text-navy-950 text-center">{member.name}</h3>
             </div>
 
             <p className="text-xs text-slate-600 leading-relaxed min-h-[90px]">
@@ -285,23 +292,23 @@ export default function AboutUs() {
             </div>
           </div>
 
-          {/* Row 2: Anusha (Left) and Varun (Right) */}
+          {/* Row 2: Companion (Left) and Strategist (Right) */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto" id="team-row-2">
             <div className="w-full h-full">
-              {renderCard(TEAM_MEMBERS.find(m => m.name === "Anusha PC"))}
+              {renderCard(TEAM_MEMBERS.find(m => m.name === "Companion (Survivor 2)"))}
             </div>
             <div className="w-full h-full">
-              {renderCard(TEAM_MEMBERS.find(m => m.name === "Varun Amidal"))}
+              {renderCard(TEAM_MEMBERS.find(m => m.name === "Strategist (Survivor 3)"))}
             </div>
           </div>
 
-          {/* Row 3: Bottom of Anusha (Sanjeeva Reddy) and Bottom of Varun (Riya P Kabadi) */}
+          {/* Row 3: Architect (Left) and Custodian (Right) */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto" id="team-row-3">
             <div className="w-full h-full">
-              {renderCard(TEAM_MEMBERS.find(m => m.name === "Sanjeeva Reddy"))}
+              {renderCard(TEAM_MEMBERS.find(m => m.name === "Architect (Survivor 4)"))}
             </div>
             <div className="w-full h-full">
-              {renderCard(TEAM_MEMBERS.find(m => m.name === "Riya P Kabadi"))}
+              {renderCard(TEAM_MEMBERS.find(m => m.name === "Custodian (Survivor 5)"))}
             </div>
           </div>
 
