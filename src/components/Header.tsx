@@ -6,9 +6,10 @@ import logo from "../../assets/logo.jpg";
 interface HeaderProps {
   activePage: string;
   setActivePage: (page: string) => void;
+  setResourcePhase?: (phase: "none" | "prelims" | "mains" | "integrity") => void;
 }
 
-export default function Header({ activePage, setActivePage }: HeaderProps) {
+export default function Header({ activePage, setActivePage, setResourcePhase }: HeaderProps) {
   const [showDropdown, setShowDropdown] = useState(false);
 
   const navItems = [
@@ -55,7 +56,10 @@ export default function Header({ activePage, setActivePage }: HeaderProps) {
                   >
                     <button
                       id={`nav-btn-${item.id}`}
-                      onClick={() => setActivePage("resources")}
+                      onClick={() => {
+                        setActivePage("resources");
+                        if (setResourcePhase) setResourcePhase("none");
+                      }}
                       className={`flex items-center space-x-1.5 py-1 transition-all duration-200 cursor-pointer ${
                         activePage === "resources" || activePage === "pyq-analysis" || activePage === "mains-pyq" || activePage === "mains-cockroach-answers" || activePage === "mains-theme-analysis" || activePage === "metro-map" || activePage === "constitution-explorer" || activePage === "governance-pioneers" || activePage === "mythology-ethics"
                           ? "text-brand-red border-b-2 border-brand-red font-bold"
@@ -79,6 +83,7 @@ export default function Header({ activePage, setActivePage }: HeaderProps) {
                           <button
                             onClick={() => {
                               setActivePage("resources");
+                              if (setResourcePhase) setResourcePhase("prelims");
                               setShowDropdown(false);
                             }}
                             className="w-full text-left px-4 py-2 text-slate-700 hover:bg-slate-50 hover:text-brand-red font-semibold uppercase tracking-wider transition-colors duration-150 flex items-center gap-2 cursor-pointer text-[11px]"
@@ -89,6 +94,7 @@ export default function Header({ activePage, setActivePage }: HeaderProps) {
                           <button
                             onClick={() => {
                               setActivePage("resources");
+                              if (setResourcePhase) setResourcePhase("mains");
                               setShowDropdown(false);
                             }}
                             className="w-full text-left px-4 py-2 text-slate-700 hover:bg-slate-50 hover:text-brand-red font-semibold uppercase tracking-wider transition-colors duration-150 flex items-center gap-2 cursor-pointer text-[11px]"
@@ -99,6 +105,7 @@ export default function Header({ activePage, setActivePage }: HeaderProps) {
                           <button
                             onClick={() => {
                               setActivePage("resources");
+                              if (setResourcePhase) setResourcePhase("integrity");
                               setShowDropdown(false);
                             }}
                             className="w-full text-left px-4 py-2 text-slate-700 hover:bg-slate-50 hover:text-brand-red font-semibold uppercase tracking-wider transition-colors duration-150 flex items-center gap-2 cursor-pointer text-[11px]"

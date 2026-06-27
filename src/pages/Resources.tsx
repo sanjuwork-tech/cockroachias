@@ -4,10 +4,14 @@ import { motion, AnimatePresence } from "motion/react";
 
 interface ResourcesProps {
   setActivePage: (page: string) => void;
+  activePhase?: "none" | "prelims" | "mains" | "integrity";
+  setActivePhase?: (phase: "none" | "prelims" | "mains" | "integrity") => void;
 }
 
-export default function Resources({ setActivePage }: ResourcesProps) {
-  const [activePhase, setActivePhase] = useState<"none" | "prelims" | "mains" | "integrity">("none");
+export default function Resources({ setActivePage, activePhase: propActivePhase, setActivePhase: propSetActivePhase }: ResourcesProps) {
+  const [localActivePhase, setLocalActivePhase] = useState<"none" | "prelims" | "mains" | "integrity">("none");
+  const activePhase = propSetActivePhase && propActivePhase !== undefined ? propActivePhase : localActivePhase;
+  const setActivePhase = propSetActivePhase || setLocalActivePhase;
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();

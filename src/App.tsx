@@ -18,6 +18,7 @@ import { AnimatePresence, motion } from "motion/react";
 import Chatbot from "./components/Chatbot";
 export default function App() {
   const [activePage, setActivePage] = useState<string>("home");
+  const [resourcePhase, setResourcePhase] = useState<"none" | "prelims" | "mains" | "integrity">("none");
   const [showTopToast, setShowTopToast] = useState<boolean>(true);
 
   // Scroll to top on page change
@@ -31,7 +32,7 @@ export default function App() {
       case "home":
         return <Home setActivePage={setActivePage} />;
       case "resources":
-        return <Resources setActivePage={setActivePage} />;
+        return <Resources setActivePage={setActivePage} activePhase={resourcePhase} setActivePhase={setResourcePhase} />;
       case "pyq-analysis":
         return <PYQAnalysisPage />;
       case "mains-pyq":
@@ -85,7 +86,7 @@ export default function App() {
       )}
 
       {/* 2. THE SIGNATURE HEADER */}
-      <Header activePage={activePage} setActivePage={setActivePage} />
+      <Header activePage={activePage} setActivePage={setActivePage} setResourcePhase={setResourcePhase} />
 
       {/* 3. CORE DYNAMIC VIEWPORT (Main container) */}
       <main className="flex-1 w-full overflow-hidden" id="main-content-viewport">
