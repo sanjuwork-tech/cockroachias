@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Compass, Brain, ArrowRight, ArrowLeft, Sparkle, TrendUp, ShieldCheck, ListNumbers, Scales, Trophy } from "@phosphor-icons/react";
+import { Compass, Brain, ArrowRight, ArrowLeft, Sparkle, TrendUp, ShieldCheck, ListNumbers, Scales, Trophy, BookOpen } from "@phosphor-icons/react";
 import { motion, AnimatePresence } from "motion/react";
 
 interface ResourcesProps {
