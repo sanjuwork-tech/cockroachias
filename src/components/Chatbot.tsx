@@ -5,7 +5,7 @@ import {
   Handshake, UserCheck, ShieldCheck 
 } from "@phosphor-icons/react";
 import { motion, AnimatePresence } from "motion/react";
-import chatbotIcon from "../../assets/Chatbot.png";
+import chatbotIcon from "../../assets/chatbot.jpeg";
 
 interface Message {
   id: string;
@@ -293,7 +293,7 @@ Our platform is built on ground-level empathy and total honesty. What would you 
       <button
         id="chatbot-trigger-btn"
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 w-[51px] h-[51px] rounded-full bg-navy-950 border border-slate-700 shadow-2xl hover:scale-105 hover:bg-slate-900 active:scale-95 transition-all duration-200 cursor-pointer overflow-hidden flex items-center justify-center group"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 w-[51px] h-[51px] rounded-full bg-white border border-slate-200 shadow-2xl hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer overflow-hidden flex items-center justify-center group"
         aria-label="Open support chat"
       >
         <img 
@@ -302,7 +302,7 @@ Our platform is built on ground-level empathy and total honesty. What would you 
           className="w-full h-full object-cover transition-transform duration-300 group-hover:rotate-6"
         />
         {/* Visual Pulse Indicator */}
-        <span className="absolute top-0 right-0 w-2.5 h-2.5 bg-brand-red border-2 border-navy-950 rounded-full animate-pulse"></span>
+        <span className="absolute top-0 right-0 w-2.5 h-2.5 bg-brand-red border-2 border-white rounded-full animate-pulse"></span>
       </button>
 
       {/* Chat window */}
@@ -313,13 +313,14 @@ Our platform is built on ground-level empathy and total honesty. What would you 
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 50, scale: 0.9 }}
             transition={{ type: "spring", stiffness: 300, damping: 25 }}
+            style={{ transformOrigin: "bottom right" }}
             id="chatbot-window"
             className="fixed bottom-18 right-4 sm:bottom-20 sm:right-6 z-50 w-[280px] sm:w-[304px] h-[416px] bg-white border border-slate-200 rounded-2xl shadow-2xl overflow-hidden flex flex-col font-sans"
           >
             {/* Header */}
             <div className="bg-navy-950 px-3 py-2 flex items-center justify-between border-b border-slate-800 text-white shrink-0">
               <div className="flex items-center space-x-2.5">
-                <div className="w-7.5 h-7.5 rounded-full bg-white/10 p-0.5 overflow-hidden flex items-center justify-center border border-white/20">
+                <div className="w-7.5 h-7.5 rounded-full bg-white p-0.5 overflow-hidden flex items-center justify-center border border-slate-200/20">
                   <img src={chatbotIcon} alt="Cockroach Assistant" className="w-full h-full object-cover rounded-full" />
                 </div>
                 <div>

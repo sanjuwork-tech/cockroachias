@@ -78,6 +78,7 @@ export default function Header({ activePage, setActivePage, setResourcePhase }: 
                           animate={{ opacity: 1, y: 0, scale: 1 }}
                           exit={{ opacity: 0, y: 10, scale: 0.95 }}
                           transition={{ type: "spring", stiffness: 350, damping: 25 }}
+                          style={{ transformOrigin: "top" }}
                           className="absolute top-full left-0 mt-1 w-56 bg-white border border-slate-200 rounded-lg shadow-lg py-1.5 z-50 font-sans"
                         >
                           <button

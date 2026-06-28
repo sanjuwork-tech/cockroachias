@@ -25,8 +25,8 @@ export default function Resources({ setActivePage, activePhase: propActivePhase,
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 15 },
-    visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 110, damping: 14 } }
+    hidden: { opacity: 0, transform: "translateY(15px)" },
+    visible: { opacity: 1, transform: "translateY(0px)", transition: { type: "spring", stiffness: 110, damping: 14 } }
   };
 
   return (
